@@ -1,0 +1,712 @@
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Project_CE216
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            Product p = new Product();
+            p.Show();
+            this.Close();
+        }
+
+        private void Sign_out_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
+using System.IO;
+using System.Windows;
+
+namespace Project_CE216
+{
+    public partial class Product : Window, IProduct
+    {
+        public Product()
+        {
+            InitializeComponent();
+        }
+        private void Oder00_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 180 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke180ml.jpg", 12);
+        }
+        private void Oder001_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 1 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke1L.jpg", 27);
+        }
+        private void Oder002_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 180 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero180ml.jpg", 12);
+        }
+        private void Oder003_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 1 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero1L.jpg", 27);
+        }
+        private void Oder004_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาลไลม์  325 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokelime325ml.jpg", 16);
+        }
+        private void Oder01_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 300 มล." , "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke300ml.jpg",14);
+        }
+        private void Oder011_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 1.25 ลิตร ","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke1.25L.jpg",31);
+        }
+        private void Oder012_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 330 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero330ml.jpg",14);
+        }
+        private void Oder013_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 1.25 ลิตร ","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero1.25L.jpg",31);
+        }
+        private void Oder014_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาลไลmN  325 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokelight325ml.jpg", 16);
+        }
+        private void Oder02_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 325 มล." ,"C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke325ml.jpg",16);
+        }
+        private void Oder021_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 1.6 ลิตร ","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke1.6L.jpg",36);
+        }
+        private void Oder022_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 325 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero325ml.jpg",16);
+        }
+        private void Oder023_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 1.6 ลิตร","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero1.6L.jpg",36);
+        }
+        private void Oder03_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 510 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke510ml.jpg", 19);
+        }
+
+        private void Oder031_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊ก 2 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\coke2L.jpg", 42);
+        }
+
+        private void Oder032_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 510 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero510ml.jpg", 19);
+        }
+
+        private void Oder033_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("โค๊กไม่มีน้ำตาล 2 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\cokezero2L.jpg", 42);
+        }
+
+        private void Oder10_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 245 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi245ml.jpg", 13);
+        }
+        private void Oder101_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 550 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi550ml.jpg", 20);
+        }
+        private void Oder102_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 245 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero245ml.jpg", 13);
+        }
+        private void Oder103_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 1 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero1L.jpg", 27);
+        }
+        private void Oder104_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไลม์ไม่มีน้ำตาล 550 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizerolime550ml.jpg", 20);
+        }
+        private void Oder11_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 330 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi330ml.jpg", 14);
+        }
+        private void Oder111_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 1 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi1L.jpg", 27);
+        }
+        private void Oder112_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 330 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero330ml.jpg", 14);
+        }
+        private void Oder113_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 1.45 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero1.45L.jpg", 34);
+        }
+        private void Oder12_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 325 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi325ml.jpg", 16);
+        }
+        private void Oder121_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 1.45 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi1.45L.jpg", 34);
+        }
+        private void Oder122_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 325 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero325ml.jpg", 16);
+        }
+        private void Oder123_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 1.95 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero1.95L.jpg", 42);
+        }
+        private void Oder13_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 550 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi550ml.jpg", 20);
+        }
+        private void Oder131_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ 1.95 ลิตร", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsi1.95L.jpg", 42);
+        }
+        private void Oder132_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไม่มีน้ำตาล 550 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsizero550ml.jpg", 20);
+        }
+        private void Oder133_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("เป๊ปซี่ไลม์ 410 มล.", "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Pepsilime410ml.jpg", 42);
+        }
+        private void Oder20_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำส้มไม่มีน้ำตาล 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Orangezero550ml.jpg",19);
+        }
+        private void Oder201_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า องุ่นป๊อป 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantaGrape550ml.jpg",19);
+        }
+        private void Oder202_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำแดง 1.25 ลิตร","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantared1.25L.jpg",31);
+        }
+        private void Oder21_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำส้ม 1.25 ลิตร","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Orange1.25L.jpg",31);
+        }
+        private void Oder211_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำแดงมะนาว 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantaredlime550ml.jpg",19);
+        }
+        private void Oder22_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำเขียว 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantaGreen550ml.jpg",19);
+        }
+        private void Oder221_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำแดง 330 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantared330ml.jpg",16);
+        }
+        private void Oder23_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำเขียว 1.25 ลิตร","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantaGreen1.25L.jpg",31);
+        }
+        private void Oder231_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("แฟนต้า น้ำแดง 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\fantared550ml.jpg",19);
+        }
+        private void Oder30_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มคริสตัล 600 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\crystal600ml.jpg",7);
+        }
+        private void Oder301_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มทิพย์ 550 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\thip550ml.jpg",7);
+        }
+        private void Oder31_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มคริสตัล 1500 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\crystal1500ml.jpg",14);
+        }
+        private void Oder311_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มทิพย์ 1500 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\thip1500ml.jpg",14);
+        }
+        private void Oder32_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มเนส์เล่เพียวไลฟ์ 600 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Nestle600ml.jpg",7);
+        }
+        private void Oder321_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มสิงห์ 600 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\singha600ml.jpg",7);
+        }
+        private void Oder33_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มเนส์เล่เพียวไลฟ์ 1500 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\Nestle1500ml.jpg",14);
+        }
+        private void Oder331_Click(object sender, RoutedEventArgs e)
+        {
+            OpenOderPage("น้ำดื่มสิงห์ 1500 มล.","C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Image\\singha1500ml.jpg",14);
+        }
+        public void OpenOderPage(string name, string ProductImage, int Price)
+        {
+            WriteToFile(name, Price);
+            OderPage oderPage = new OderPage(name, ProductImage, Price);
+            oderPage.Show();
+            this.Close();
+        }
+        private void WriteToFile(string name, int price)
+        {
+            string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\ProductOrder.txt";
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine("Order Date: " + DateTime.Now.ToString("dd/MM/yyyy เวลา HH:mm:ss "));
+                writer.WriteLine($"{name},{price}");
+                writer.WriteLine(new string('-', 20));
+            }
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace Project_CE216
+{
+
+    public partial class OderPage : Window
+    {
+        private string path;
+        private object imagePath;
+
+        public string ProductName { get; set; }
+        public string ProductImagePath { get; set; }
+        public int ProductPrice { get; set; }
+
+        public OderPage(string name, string imagePath, int price)
+        {
+            InitializeComponent();
+
+            ProductName = name;
+            ProductImagePath = imagePath;
+            ProductPrice = price;
+            Name.Text = ProductName;
+            ProductImage.Source = new BitmapImage(new Uri(ProductImagePath));
+            Price.Text = ProductPrice.ToString();
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\ProductOrder.txt"; // กำหนดที่อยู่ไฟล์ของคุณ
+            string[] lines = File.ReadAllLines(filePath);
+
+            if (lines.Length > 0)
+            {
+                // ลบ 3 บรรทัด ล่าสุด
+                lines = lines.Take(lines.Length - 3).ToArray();
+
+                // เขียนข้อมูลที่เหลือกลับลงในไฟล์
+                File.WriteAllLines(filePath, lines);
+
+                Console.WriteLine("Last line removed successfully.");
+            }
+
+            Product pd = new Product();
+            pd.Show();
+            this.Close();
+        }
+
+        private void Payments_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(Quantity.Text, out int quantity))
+            {
+                if (quantity > 24)
+                {
+                    // Show error message if quantity exceeds 24
+                    MessageBox.Show("คุณสั่งของเกินจำนวนที่จำกัด", "ข้อผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (quantity < 1)
+                {
+                    MessageBox.Show("กรุณาใส่จำนวนที่ถูกต้อง", "ข้อผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    // Calculate total price
+                    int totalPrice = quantity * ProductPrice;
+
+                    // Write data to the OrderPage.txt file
+                    string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\OrderPage.txt"; // specify your file path
+                    using (StreamWriter sw = new StreamWriter(filePath))
+                    {
+                        sw.WriteLine($"{ProductName},{ProductPrice},{Quantity.Text},{totalPrice}");
+                    }
+
+                    // Open the PaymentPage window
+                    PaymentPage pmp = new PaymentPage();
+                    pmp.Show();
+
+                    // Close the OrderPage window
+                    this.Close();
+                }
+            }
+            else
+            {
+                // Show error message if the Quantity input is not a valid integer
+                MessageBox.Show("กรุณาใส่จำนวนที่ถูกต้อง", "ข้อผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace Project_CE216
+{
+    /// <summary>
+    /// Interaction logic for PaymentPage.xaml
+    /// </summary>
+    public partial class PaymentPage : Window
+    {
+        public PaymentPage()
+        {
+            InitializeComponent();
+            LoadDataFromFile();
+        }
+
+        private void LoadDataFromFile()
+        {
+            string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\OrderPage.txt";
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    if (lines.Length > 0)
+                    {
+                        // อ่านข้อมูลจากบรรทัดแรกในไฟล์
+                        string[] data = lines[0].Split(',');
+
+                        // ตรวจสอบว่าข้อมูลที่ได้มีความยาวเพียงพอ
+                        if (data.Length >= 4)
+                        {
+                            // กำหนดค่าให้กับคอนโทรลในหน้า PaymentPage
+                            NameP.Text = data[0]; // ชื่อสินค้า
+                            Price.Text = data[1]; // ราคา
+                            Quantity.Text = data[2]; // จำนวน
+                            Total.Text = data[3]; // รวมทั้งสิ้น
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("เกิดข้อผิดพลาดในการอ่านไฟล์: " + ex.Message);
+            }
+        }
+
+        private void Cash_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentCash cash = new PaymentCash();
+            cash.Show();
+            this.Close();
+        }
+
+        private void Transfer_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentTransfer TP = new PaymentTransfer();
+            TP.Show();
+            this.Close();
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Xml.Linq;
+
+namespace Project_CE216
+{
+    public partial class PaymentCash : Window
+    {
+        private string OrderFilePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\OrderPage.txt";
+        public PaymentCash()
+        {
+            InitializeComponent();
+            ReadToFile();
+        }
+
+        private void ReadToFile()
+        {
+            try
+            {
+                if (File.Exists(OrderFilePath))
+                {
+                    string[] lines = File.ReadAllLines(OrderFilePath);
+                    if (lines.Length > 0)
+                    {
+                        string[] data = lines[0].Split(',');
+                        if (data.Length >= 4)
+                        {
+                            NameP.Text = data[0];
+                            Price.Text = data[1];
+                            Quantity.Text = data[2];
+                            Total.Text = data[3];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("เกิดข้อผิดพลาดในการอ่านไฟล์: " + ex.Message);
+            }
+        }
+        private void cal_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int pay1 = string.IsNullOrEmpty(Paymoney1.Text) ? 0 : int.Parse(Paymoney1.Text);
+                int pay5 = string.IsNullOrEmpty(Paymoney5.Text) ? 0 : int.Parse(Paymoney5.Text);
+                int pay10 = string.IsNullOrEmpty(Paymoney10.Text) ? 0 : int.Parse(Paymoney10.Text);
+                int pay20 = string.IsNullOrEmpty(Paymoney20.Text) ? 0 : int.Parse(Paymoney20.Text);
+                int pay50 = string.IsNullOrEmpty(Paymoney50.Text) ? 0 : int.Parse(Paymoney50.Text);
+                int Paymoney = (pay1 * 1) + (pay5 * 5) + (pay10 * 10) + (pay20 * 20) + (pay50 * 50);
+
+                if (decimal.TryParse(Total.Text, out decimal total))
+                {
+                    if (Paymoney < total)
+                    {
+                        decimal difference = total - Paymoney;
+                        MessageBox.Show($"คุณใส่จำนวนเงินไม่พอ ขาดอีก {difference} บาท", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        decimal change = Paymoney - total;
+                        Change.Text = change.ToString();
+                        MessageBox.Show($"คุณชำระเงินสำเร็จ เงินทอนคือ {change} บาท", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        WritePaymentCash(total, Paymoney, change);
+                        MainWindow mw = new MainWindow();
+                        mw.Show();
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("เกิดข้อผิดพลาด: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void WritePaymentCash(decimal total, decimal paymoney, decimal change)
+        {
+            string Cash = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\Cash.txt";
+            using (StreamWriter writer = new StreamWriter(Cash, true))
+            {
+                writer.WriteLine($"\t-----ชำระเงินโดยเงินสด----- ");
+                writer.WriteLine($"- วันที่: {DateTime.Now.ToString("dd/MM/yyyy เวลา HH:mm:ss ")}");
+                writer.WriteLine($"- ชื่อสินค้า : {NameP.Text} ");
+                writer.WriteLine($"- ราคา : {Price.Text} บาท");
+                writer.WriteLine($"- จำนวน : {Quantity.Text} ชิ้น");
+                writer.WriteLine($"- รวมทั้งสิ้น : {total} บาท ");
+                writer.WriteLine($"- จ่ายเงิน : {paymoney} บาท");
+                writer.WriteLine($"- เงินทอน : {change} บาท");
+                writer.WriteLine(new string('-', 20));
+                
+            }
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\ProductOrder.txt"; // กำหนดที่อยู่ไฟล์ของคุณ
+            string[] lines = File.ReadAllLines(filePath);
+
+            if (lines.Length > 0)
+            {
+                // ลบ 3 บรรทัดล่าสุด
+                lines = lines.Take(lines.Length - 3).ToArray();
+
+                // เขียนข้อมูลที่เหลือกลับลงในไฟล์
+                File.WriteAllLines(filePath, lines);
+
+                Console.WriteLine("Last line removed successfully.");
+            }
+
+            Product pd = new Product();
+            pd.Show();
+            this.Close();
+        }
+    }
+}
+using QRCoder;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
+using System.Numerics;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Policy;
+using System.Text;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Xml.Linq;
+
+namespace Project_CE216
+{
+    public partial class PaymentTransfer : Window
+    {
+        public PaymentTransfer()
+        {
+            InitializeComponent();
+            ReadFromFile();
+        }
+
+        private string OrderFilePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\OrderPage.txt";
+
+        public object BarcodeFormat { get; private set; }
+
+        private void ReadFromFile()
+        {
+            try
+            {
+                if (File.Exists(OrderFilePath))
+                {
+                    string[] lines = File.ReadAllLines(OrderFilePath);
+                    if (lines.Length > 0)
+                    {
+                        string[] data = lines[0].Split(',');
+                        if (data.Length >= 4)
+                        {
+                            NameP.Text = data[0];
+                            Total.Text = data[3];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading file: " + ex.Message);
+            }
+        }
+        private void GenerateQR_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // รับราคาจากกล่องข้อความ Total
+                decimal prices = decimal.Parse(Total.Text);
+
+                using (WebClient client = new WebClient())
+                {
+                    string url = $"https://promptpay.io/0645248365/{prices}.png";
+                    string fileName = "image"; // ระบุชื่อไฟล์ที่จะบันทึกภาพรหัส QR
+                    // ดาวน์โหลดภาพโค้ด QR จาก URL
+                    client.DownloadFile(url, fileName);
+
+                    // Display the QR code image on the Image control
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.UriSource = new Uri(Path.GetFullPath(fileName)); // Use Path.GetFullPath to correctly reference the file
+                    bitmapImage.EndInit();
+                    ImageQR.Source = bitmapImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void Pay_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Extract payment details from the UI
+                string name = NameP.Text;
+                string total = Total.Text;
+                // Write payment details to file
+                WritePaymentDetails(name, total);
+
+                // Open the main window
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving payment details: " + ex.Message);
+            }
+        }
+        private void WritePaymentDetails(string name, string total)
+        {
+            string PTransfer = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\PTransfer.txt";
+            using (StreamWriter writer = new StreamWriter(PTransfer, true))
+            {
+                writer.WriteLine($"\t-----ชำระเงินโดยการโอน----- ");
+                writer.WriteLine($"- วันที่: {DateTime.Now.ToString("dd/MM/yyyy เวลา HH:mm:ss ")}");
+                writer.WriteLine($"- ชื่อสินค้า : {NameP.Text} ");
+                writer.WriteLine($"- รวมทั้งสิ้น : {total} บาท ");
+                writer.WriteLine($"- ชำระเงินโดยการโอน : {total} บาท");
+                writer.WriteLine(new string('-', 20));
+            }
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = "C:\\Users\\acer\\Desktop\\CE216\\Project_CE216\\Data\\ProductOrder.txt"; // กำหนดที่อยู่ไฟล์ของคุณ
+            string[] lines = File.ReadAllLines(filePath);
+
+            if (lines.Length > 0)
+            {
+                // ลบ 3 บรรทัดล่าสุด
+                lines = lines.Take(lines.Length - 3).ToArray();
+
+                // เขียนข้อมูลที่เหลือกลับลงในไฟล์
+                File.WriteAllLines(filePath, lines);
+
+                Console.WriteLine("Last line removed successfully.");
+            }
+            Product pd = new Product();
+            pd.Show();
+            this.Close();
+        }
+    }
+}

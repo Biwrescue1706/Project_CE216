@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "dUpnyRuPiYI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AdminPC\\Desktop\\CE216\\Project_CE216\\Project_CE216.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AdminPC\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\AdminPC\\.nuget\\packages\\qrcoder\\1.5.1\\qrcoder.1.5.1.nupkg.sha512",
+    "C:\\Users\\AdminPC\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

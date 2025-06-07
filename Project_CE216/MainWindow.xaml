@@ -1,0 +1,40 @@
+﻿<Window x:Class="Project_CE216.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_CE216"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="410" Width="880">
+    <StackPanel>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="ยินดีต้อนรับ" FontSize="36" FontWeight="Bold" FontFamily="TH SarabunPSK" HorizontalAlignment="Center" Margin="10,60,10,50" RenderTransformOrigin="0.543,0.934"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Height="157">
+                <Grid Height="182">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Sign_out" Grid.Column="0" Content="ออกจากระบบ" FontSize="25" FontWeight="Bold" FontFamily="TH SarabunPSK" Margin="55,60,75,50" Width="135" Click="Sign_out_Click" />
+                    <Button x:Name="Enter" Grid.Column="1" Content="เข้าสู่เมนู" FontSize="25" FontWeight="Bold" FontFamily="TH SarabunPSK" Margin="0,60,0,50" Width="135" Click="Enter_Click" />
+                    <Button x:Name="ShowSummaryDaily" Grid.Column="2" Content="สรุปยอดสั่งซื้อรายวัน" FontSize="25" FontWeight="Bold" FontFamily="TH SarabunPSK" Margin="65,60,40,50" Click="ShowSummaryDaily_Click" />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="Project_CE216.OderPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_CE216"
+        mc:Ignorable="d"
+        Title="OderPage" Height="535" Width="1210">
+    <Border BorderBrush="DarkRed" BorderThickness="5" Margin="10,10,10,10">
+        <StackPanel Margin="0,0,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="สรุปรายการสั่งซื้อ" FontSize="30" HorizontalAlignment="Center" FontFamily="TH SarabunPSK" FontWeight="Bold" Margin="0,5,0,0"/>
+            </Grid>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ProductImage" Grid.Column="0" Margin="29,35,29,200" Height="150"/>
+
+                    <Label Content="ราคา" Grid.Column="1" Margin="96,110,97,231" FontSize="20" RenderTransformOrigin="0.494,-0.183"/>
+                    <Label Content="จำนวน: " Grid.Column="1"  Margin="96,171,96,170" FontSize="20"/>
+
+                    <TextBlock x:Name="Name" Grid.Column="2" FontSize="20" Margin="31,30,32,305" RenderTransformOrigin="0.5,0.5"/>
+                    <TextBlock x:Name="Price" Grid.Column="2" FontSize="20" Margin="63,110,42,231" Text="" TextAlignment="Center"/>
+                    <TextBox x:Name="Quantity" Grid.Column="2" FontSize="20" Margin="63,171,42,170" RenderTransformOrigin="0.551,-3.034" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <TextBlock Text="บาท" Grid.Column="3" Margin="76,110,115,231" FontSize="20"/>
+                    <TextBlock Grid.Column="3" Text="ชิ้น" Margin="76,171,156,170" FontSize="20"/>
+                    <Button x:Name="BackButton" Content="ย้อนกลับ" FontSize="40" Height="60" Click="BackButton_Click" Margin="22,272,23,53" Grid.Column="1"/>
+                    <Button x:Name="Payments" Grid.Column="3" Content="ชำระเงิน" FontSize="40" Height="60" Margin="48,272,48,53" Click="Payments_Click"/>
+                </Grid>
+                <StackPanel/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
